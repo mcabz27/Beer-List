@@ -7,12 +7,23 @@ CREATE TABLE users (
   password_digest VARCHAR(255)
 );
 
+-- REFERENCE USER ID
+CREATE TABLE usercomment(
+  id SERIAL PRIMARY KEY,
+  -- comment_id INTEGER REFERENCES users(id),
+  comment VARCHAR (255)
+)
 
+
+
+ -- beer id VARCHAR (255) REFERENCES BEER(id)
 CREATE TABLE beers (
   id SERIAL PRIMARY KEY,
+  -- beer_id INTEGER REFERENCES usercomment(comment_id)
   name VARCHAR (255),
   alc_by_volume VARCHAR (255),
   description VARCHAR (255),
   availability VARCHAR (255),
   style VARCHAR (255)
 )
+

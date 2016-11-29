@@ -8,6 +8,20 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <h1>Your saved beers are here!</h1>
+  <h1>Check what people are drinking!</h1>
+  <div class="beerWorld container">
+    {{#title}}
+      {{name}}<br>
+      {{alc_by_volume}}<br>
+      {{description}}<br>
+      {{availability}}<br>
+      {{style}}
+      <hr>
+    {{/title}}
+  </div>
+
+  <script src="/js/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+<script src="/js/scripts.js"></script>
 </body>
 </html>

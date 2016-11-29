@@ -51,7 +51,7 @@ app.post('/signup', function(req, res){
       "INSERT INTO users (email, password_digest) VALUES ($1, $2)",
       [data.email, hash]
     ).then(function(){
-      res.send('User created!');
+      res.send('User created, go login!!');
     })
   });
 })
@@ -82,15 +82,26 @@ app.post("/members",function(req, res){
   })
 });
 
+app.get("/members", function(req, res) {
+  db.many("SELECT * FROM beers").then(function(data){
+    var beerData = data
+    console.log(beerData);
+    res.render('members', {
+      title: beerData
+    });
+  })
+});
+
 app.get('/search', function(req, res){
 //search screen!
 res.render('search');
 })
 
 
-app.get('/members/:id', function(req, res){
-  res.render('members');
-})
+// app.get('/members', function(req, res){
+
+//   res.render('members');
+// })
 
 
 
