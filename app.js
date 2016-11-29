@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 8080;
 var pgp = require('pg-promise')();
-var db = pgp('postgres://mcabz27@localhost:5432/beer_db');
+var db = pgp('postgres://mcabz27@localhost:5432/beerdata_db');
 var mustacheExpress = require('mustache-express');
 var bdPars = require('body-parser');
 var session = require('express-session');
@@ -73,6 +73,14 @@ app.post('/login', function(req, res){
     })
   })
 })
+
+app.post("/members",function(req, res){
+  var beerInfo = req.body;
+  console.log(beerInfo);
+  db.none('INSERT INTO beers (name,alc_by_volume,description,availability,style) VALUES ($1,$2,$3,$4,$5)', [beerInfo.name, beerInfo.alc_by_volume, beerInfo.description, beerInfo.availability, beerInfo.style]).then(function(data){
+        res.redirect('/members')
+  })
+});
 
 app.get('/search', function(req, res){
 //search screen!
