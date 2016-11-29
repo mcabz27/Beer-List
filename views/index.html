@@ -6,14 +6,15 @@
   <title>My Beer List</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 </head>
-<body>
-  <h1 class="green darken-3 container">MY BEER LIST!</h1>
+<body class="openingPage">
+  <h1 class="red container">MY BEER LIST!</h1>
     <form class="form-horizontal" action="/login" method="post">
       <div class="form-group container">
-        <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+        <label for="inputEmail" class="col-lg-2 control-label">Email/Username</label>
           <div class="col-lg-10">
-            <input name="email" type="text" class="form-control" id="inputEmail" placeholder="Email">
+            <input name="email" type="text" class="form-control" id="inputEmail" placeholder="Email/Username">
           </div>
       </div>
         <div class="container">
@@ -31,33 +32,35 @@
     <div>
       <p class="container">Not a member? <a href="/signup">Sign Up!</a></p>
     </div>
+    <div class="video-container container">
+      <iframe width="853" height="480" src="//www.youtube.com/embed/6fDbSnfHJFc" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <footer class="page-footer red">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Footer Content</h5>
+            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © 2016 Made By Matt Cabezon
+        </div>
+      </div>
+    </footer>
 <script src="/js/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 <script src="/js/scripts.js"></script>
 </body>
-  <footer class="page-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Footer Content</h5>
-          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-        </div>
-        <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-      © 2014 Copyright Text
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-      </div>
-    </div>
-  </footer>
 </html>

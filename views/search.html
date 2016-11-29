@@ -14,29 +14,54 @@
     <button id="submitButton" type="submit" class ="waves-effect waves-light btn">Search</button>
   </form>
   <div class="row container">
-    <div class="col s6">
+    <div class="col s6 black">
       <p id="allBeer"></p>
       <p id="abv"></p>
       <p id="description"></p>
       <p id="foods"></p>
     </div>
     <div class="col s6">
-      <p>Would you like to save this beer? Enter how you want it saved!</p>
-      <form method="POST" action="/creatures">
-        Name:<input name="name" id="name"><br>
-        Alcohol By Volume:<input name="abv" id="abv"><br>
-        Description:<input name="description" id="description"><br>
-        Availability:<input name="availability" id="availability"><br>
-        Type of Beer:<input name="type" id="type"><br>
-        <button type="submit">Submit</button>
-      </form>
+<!--       <p>Would you like to save this beer? Enter how you want it saved!</p>-->
+      <div class='red searchBox'>
+        <form method="POST" action="/creatures">
+          Name:<input name="name" id="name"><br>
+          Alcohol By Volume:<input name="abv" id="abv"><br>
+          Description:<input name="description" id="description"><br>
+          Availability:<input name="availability" id="availability"><br>
+          Type of Beer:<input name="type" id="type"><br>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   </div>
 
 <!--   INPUT/FORMS FOR SAVING BEER. BY NAME/ABV/SHORT DESCRIPT
  -->
 
-
+    <footer class="page-footer red">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Footer Content</h5>
+            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © 2016 Made By Matt Cabezon
+        </div>
+      </div>
+    </footer>
 <script src="/js/jquery.js"></script>
 <script src="/js/scripts.js"></script>
 </body>

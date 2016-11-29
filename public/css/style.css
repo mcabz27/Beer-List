@@ -1,9 +1,23 @@
-/* h1{
-  color: red;
-} */
+h1{
+  color: white;
+}
 
 p{
   color: red;
   font-family: Helvetica;
   font-size: 20px;
 }
+
+body{
+  background: url('http://wallpapers-and-backgrounds.net/wp-content/uploads/2016/03/beer-1080p-background_1.jpg');
+  font-family: 'Abril Fatface', cursive;
+}
+
+.openingPage input{
+  color: white;
+}
+
+input{
+  color: white;
+}
+
