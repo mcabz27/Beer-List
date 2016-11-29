@@ -29,12 +29,10 @@ app.listen(8080, function(){
 app.get('/', function(req, res){
   var logged_in;
   var email;
-
   if(req.session.user){
     logged_in = true;
     email = req.session.user.email
   }
-
   var data = {
     "logged_in": logged_in,
     "email": email
@@ -48,7 +46,6 @@ app.get('/signup', function(req, res){
 
 app.post('/signup', function(req, res){
   var data = req.body;
-
   bcrypt.hash(data.password, 10, function(err, hash){
     db.none(
       "INSERT INTO users (email, password_digest) VALUES ($1, $2)",
@@ -80,9 +77,15 @@ app.post('/login', function(req, res){
 app.get('/search', function(req, res){
 //search screen!
 res.render('search');
-
 })
+
 
 app.get('/members/:id', function(req, res){
   res.render('members');
 })
+
+
+
+
+
+
