@@ -6,6 +6,7 @@
   <title>Beers!</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 </head>
 <body>
 <div class="navbar-fixed">
@@ -23,11 +24,11 @@
   <div class="beerWorld container col s6">
     {{#title}}
       <div>
-        Beer Name: {{name}}<br>
-        Alcohol By Volume: {{alc_by_volume}}<br>
-        Beer Description: {{description}}<br>
-        Availability: {{availability}}<br>
-        Type Of Beer: {{style}}
+        <span>Beer Name:</span> {{name}}<br>
+        <span>Alcohol By Volume:</span> {{alc_by_volume}}<br>
+        <span>Beer Description:</span> {{description}}<br>
+        <span>Availability:</span> {{availability}}<br>
+        <span>Type Of Beer:</span> {{style}}
         <hr>
       </div>
     {{/title}}

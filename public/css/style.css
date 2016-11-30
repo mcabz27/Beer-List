@@ -18,6 +18,10 @@ body{
   font-family: 'Abril Fatface', cursive;
 }
 
+.red{
+  opacity: 0.85;
+}
+
 .searching{
   font-size: 20px;
 }
@@ -39,4 +43,9 @@ input{
   font-size: 25px;
   background-color: red;
   opacity: 0.75;
+}
+
+span{
+  font-weight: bold;
+  opacity: 1;
 }

@@ -6,6 +6,7 @@
   <title>Search a Beer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 </head>
 <body>
 <div class="navbar-fixed">
@@ -22,9 +23,9 @@
   <h2 class="container">Search for a beer!</h2>
   <div class="row container searchBox">
     <div class="col s6">
-      {{#title}}
-        {{name}}
-      {{/title}}
+      {{#beers}}
+        {{name}}<br>
+      {{/beers}}
     </div>
     <div class="col s6 searching">
       <div class='red searchBox'>

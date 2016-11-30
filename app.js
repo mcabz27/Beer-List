@@ -98,11 +98,11 @@ app.get('/search', function(req, res){
     .then(function(res) {
         return res.json();
     }).then(function(json) {
-        console.log(json);
-        var info = json;
+        // console.log(json);
+        var info = json.data;
         res.render('search', {
-          "title": info
-        });
+          beers: info
+        })
     });
 });
 
