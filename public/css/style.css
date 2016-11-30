@@ -2,6 +2,11 @@ h1{
   color: white;
 }
 
+h2{
+  color: white;
+  text-align: center;
+}
+
 p{
   color: red;
   font-family: Helvetica;
@@ -13,6 +18,14 @@ body{
   font-family: 'Abril Fatface', cursive;
 }
 
+.searching{
+  font-size: 20px;
+}
+
+.searchBox{
+  margin-top: 40px;
+}
+
 .openingPage input{
   color: white;
 }
@@ -22,5 +35,8 @@ input{
 }
 
 .beerWorld{
-  color: white;
+  color: black;
+  font-size: 25px;
+  background-color: red;
+  opacity: 0.75;
 }

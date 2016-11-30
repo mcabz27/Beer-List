@@ -16,6 +16,7 @@
     "method-override": "^2.3.7",
     "mustache": "^2.3.0",
     "mustache-express": "^1.2.4",
+    "node-fetch": "^1.6.3",
     "pg-promise": "^5.4.4"
   }
 }

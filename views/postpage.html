@@ -8,15 +8,28 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <h1>Check what people are drinking!</h1>
-  <div class="beerWorld container">
+<div class="navbar-fixed">
+  <nav class="red">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo right">Logo</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="/posts">Back to the Top</a></li>
+        <li><a href="/search">Search a Beer</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+  <h2 class="container">Check what people are drinking!</h2>
+  <div class="beerWorld container col s6">
     {{#title}}
-      {{name}}<br>
-      {{alc_by_volume}}<br>
-      {{description}}<br>
-      {{availability}}<br>
-      {{style}}
-      <hr>
+      <div>
+        Beer Name: {{name}}<br>
+        Alcohol By Volume: {{alc_by_volume}}<br>
+        Beer Description: {{description}}<br>
+        Availability: {{availability}}<br>
+        Type Of Beer: {{style}}
+        <hr>
+      </div>
     {{/title}}
   </div>
 <script src="/js/jquery.js"></script>

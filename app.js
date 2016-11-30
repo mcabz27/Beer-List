@@ -2,11 +2,12 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 8080;
 var pgp = require('pg-promise')();
-var db = pgp('postgres://mcabz27@localhost:5432/thebeer_db');
+var db = pgp('postgres://mcabz27@localhost:5432/beerlist_db');
 var mustacheExpress = require('mustache-express');
 var bdPars = require('body-parser');
 var session = require('express-session');
 var bcrypt = require('bcrypt');
+var fetch = require('node-fetch');
 app.use(bdPars.urlencoded({
     extended: false
 }));
@@ -66,7 +67,7 @@ app.post('/login', function(req, res){
     bcrypt.compare(data.password, user.password_digest, function(err, cmp){
       if(cmp){
         req.session.user = user;
-        res.redirect('/search');
+        res.redirect('/posts');
       } else {
         res.send('Email/password not found');
       }
@@ -74,28 +75,48 @@ app.post('/login', function(req, res){
   })
 })
 
-app.post("/members",function(req, res){
-  var beerInfo = req.body;
-  console.log(beerInfo);
-  db.none('INSERT INTO beers (name,alc_by_volume,description,availability,style) VALUES ($1,$2,$3,$4,$5)', [beerInfo.name, beerInfo.alc_by_volume, beerInfo.description, beerInfo.availability, beerInfo.style]).then(function(data){
-        res.redirect('/members')
-  })
-});
-
-app.get("/members", function(req, res) {
+app.get("/posts", function(req, res) {
   db.many("SELECT * FROM beers").then(function(data){
     var beerData = data
     console.log(beerData);
-    res.render('members', {
+    res.render('postpage', {
       title: beerData
     });
   })
 });
 
+app.post("/postpage",function(req, res){
+  var beerInfo = req.body;
+  console.log(beerInfo);
+  db.none('INSERT INTO beers (name, beer_id, alc_by_volume, description, availability, style) VALUES ($1,$2,$3,$4,$5,$6)', [beerInfo.name, beerInfo.beer_id, beerInfo.alc_by_volume, beerInfo.description, beerInfo.availability, beerInfo.style]).then(function(data){
+        res.redirect('/posts')
+  })
+});
+
 app.get('/search', function(req, res){
-//search screen!
-res.render('search');
-})
+  fetch('http://api.brewerydb.com/v2/beers?key=8788a9d8ef81f87cc310c954b394aaa0&format=json')
+    .then(function(res) {
+        return res.json();
+    }).then(function(json) {
+        console.log(json);
+        var info = json;
+        res.render('search', {
+          "title": info
+        });
+    });
+});
+
+// app.post("/comment", function(req, res){
+//   var usercomm = req.body;
+//   console.log(usercomm);
+//   db.none('INSERT INTO usercomment (comment) VALUES ($1)', [usercomm.comment]).then(function(data){
+//     res.redirect('/posts')
+//   })
+// });
+
+
+
+
 
 
 // app.get('/members', function(req, res){

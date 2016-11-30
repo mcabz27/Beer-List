@@ -8,23 +8,28 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <h2>Search a beer!</h2>
-  <form class="container">
-    <input id="beerSearch" type="text">
-    <button id="submitButton" type="submit" class ="waves-effect waves-light btn">Search</button>
-  </form>
-  <div class="row container">
-    <div class="col s6 black"> <!-- make into list -->
-      <p id="allBeer"></p>
-      <p id="abv"></p>
-      <p id="description"></p>
-      <p id="foods"></p>
+<div class="navbar-fixed">
+  <nav class="red">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo right">Logo</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="/search">Back to the Top</a></li>
+        <li><a href="/posts">Post Page</a></li>
+      </ul>
     </div>
+  </nav>
+</div>
+  <h2 class="container">Search for a beer!</h2>
+  <div class="row container searchBox">
     <div class="col s6">
-<!--       <p>Would you like to save this beer? Enter how you want it saved!</p>-->
+      {{#title}}
+        {{name}}
+      {{/title}}
+    </div>
+    <div class="col s6 searching">
       <div class='red searchBox'>
-        <form method="POST" action="/members">
-          Name:<input name="name" id="name"><br>
+        <form method="POST" action="/postpage">
+          Beer Name:<input name="name" id="name"><br>
           Alcohol By Volume:<input name="alc_by_volume" id="abv"><br>
           Description:<input name="description" id="description"><br>
           Availability:<input name="availability" id="availability"><br>
@@ -34,10 +39,8 @@
       </div>
     </div>
   </div>
-
 <!--   INPUT/FORMS FOR SAVING BEER. BY NAME/ABV/SHORT DESCRIPT
  -->
-
     <footer class="page-footer red">
       <div class="container">
         <div class="row">
