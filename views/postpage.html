@@ -3,11 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Your Saved Beers</title>
+  <title>Beers!</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+  <h1>Check what people are drinking!</h1>
+  <div class="beerWorld container">
+    {{#title}}
+      {{name}}<br>
+      {{alc_by_volume}}<br>
+      {{description}}<br>
+      {{availability}}<br>
+      {{style}}
+      <hr>
+    {{/title}}
+  </div>
 <script src="/js/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 <script src="/js/scripts.js"></script>
