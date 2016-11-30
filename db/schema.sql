@@ -1,5 +1,6 @@
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS beers;
+DROP TABLE IF EXISTS usercomment CASCADE;
+DROP TABLE IF EXISTS beers CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -7,19 +8,15 @@ CREATE TABLE users (
   password_digest VARCHAR(255)
 );
 
--- REFERENCE USER ID
 CREATE TABLE usercomment (
   id SERIAL PRIMARY KEY,
-  comment_id INTEGER REFERENCES users(id),
+  comment_id INTEGER UNIQUE REFERENCES users(id),
   comment VARCHAR (255)
-)
+);
 
-
-
- -- beer id VARCHAR (255) REFERENCES BEER(id)
 CREATE TABLE beers (
   id SERIAL PRIMARY KEY,
-  beer_id INTEGER REFERENCES usercomment(comment_id)
+  beer_id INTEGER REFERENCES usercomment(comment_id),
   name VARCHAR (255),
   alc_by_volume VARCHAR (255),
   description VARCHAR (255),
