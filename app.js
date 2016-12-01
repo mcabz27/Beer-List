@@ -30,9 +30,11 @@ app.listen(8080, function(){
 app.get('/', function(req, res){
   var logged_in;
   var email;
-  if(req.session.user){
+  var user = req.session.user
+  if(user){
     logged_in = true;
     email = req.session.user.email
+    res.redirect('search');
   }
   var data = {
     "logged_in": logged_in,
@@ -52,6 +54,7 @@ app.post('/signup', function(req, res){
       "INSERT INTO users (email, password_digest) VALUES ($1, $2)",
       [data.email, hash]
     ).then(function(){
+      req.session.user = user;
       res.send('User created, go login!!');
     })
   });
@@ -59,6 +62,11 @@ app.post('/signup', function(req, res){
 
 app.post('/login', function(req, res){
   var data = req.body;
+  var user = req.session.user;
+
+  if (user){
+    res.redirect('search');
+  }
   db.one(
     "SELECT * FROM users WHERE email = $1", [data.email]
   ).catch(function(){
@@ -75,10 +83,16 @@ app.post('/login', function(req, res){
   })
 })
 
+// app.get('/members/:id', function(req, res){
+
+//   res.render('members');
+// })
+
+
 app.get("/posts", function(req, res) {
   db.many("SELECT * FROM beers").then(function(data){
     var beerData = data
-    console.log(beerData);
+    // console.log(beerData);
     res.render('postpage', {
       title: beerData
     });
@@ -87,13 +101,23 @@ app.get("/posts", function(req, res) {
 
 app.post("/postpage",function(req, res){
   var beerInfo = req.body;
-  console.log(beerInfo);
-  db.none('INSERT INTO beers (name, beer_id, alc_by_volume, description, availability, style) VALUES ($1,$2,$3,$4,$5,$6)', [beerInfo.name, beerInfo.beer_id, beerInfo.alc_by_volume, beerInfo.description, beerInfo.availability, beerInfo.style]).then(function(data){
+  user = req.session.user;
+  console.log(user.id);
+  console.log(user)
+  // console.log(beerInfo);
+  db.none('INSERT INTO beers (name, beer_id, alc_by_volume, description, availability, style) VALUES ($1,$2,$3,$4,$5,$6)', [beerInfo.name, user.id, beerInfo.alc_by_volume, beerInfo.description, beerInfo.availability, beerInfo.style]).then(function(data){
         res.redirect('/posts')
   })
 });
 
 app.get('/search', function(req, res){
+  user = req.session.user;
+  // console.log(user);
+
+  if(user === undefined){
+    res.redirect('/');
+  } else {
+
   fetch('http://api.brewerydb.com/v2/beers?key=8788a9d8ef81f87cc310c954b394aaa0&format=json')
     .then(function(res) {
         return res.json();
@@ -104,6 +128,7 @@ app.get('/search', function(req, res){
           beers: info
         })
     });
+  }
 });
 
 // app.post("/comment", function(req, res){
@@ -119,10 +144,6 @@ app.get('/search', function(req, res){
 
 
 
-// app.get('/members', function(req, res){
-
-//   res.render('members');
-// })
 
 
 

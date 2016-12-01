@@ -19,7 +19,7 @@ body{
 }
 
 .red{
-  opacity: 0.85;
+  opacity: 0.90;
 }
 
 .searching{
@@ -28,6 +28,10 @@ body{
 
 .searchBox{
   margin-top: 40px;
+}
+
+.searches{
+  font-size: 20px;
 }
 
 .openingPage input{
@@ -41,8 +45,7 @@ input{
 .beerWorld{
   color: black;
   font-size: 25px;
-  background-color: red;
-  opacity: 0.75;
+  opacity: 0.90;
 }
 
 span{
