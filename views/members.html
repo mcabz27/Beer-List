@@ -8,12 +8,23 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-
-<h2>
-{{#title}}
+<div class="navbar-fixed">
+  <nav class="red">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo right">Logo</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="/search">Search a Beer</a></li>
+        <li><a href="/posts">Post Page</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<!-- PUT USER EMAIL
+ --><h2>
+{{#beer}}
   {{name}}
   <hr>
-{{/title}}
+{{/beer}}
 </h2>
 
 

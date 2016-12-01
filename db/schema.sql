@@ -10,7 +10,8 @@ CREATE TABLE users (
 
 CREATE TABLE beers (
   id SERIAL PRIMARY KEY,
-  beer_id INTEGER UNIQUE REFERENCES users(id),
+  -- beer_id INTEGER UNIQUE REFERENCES users(id),
+  user_id INTEGER,
   name VARCHAR (255),
   alc_by_volume VARCHAR (255),
   description VARCHAR (255),
@@ -20,8 +21,10 @@ CREATE TABLE beers (
 
 CREATE TABLE usercomment (
   id SERIAL PRIMARY KEY,
-  comment_id INTEGER REFERENCES beers(beer_id),
-  comment VARCHAR (255)
+  -- comment_id INTEGER REFERENCES beers(beer_id),
+  comment VARCHAR (255),
+  -- user_id INTEGER,
+  beer_id INTEGER,
 );
 
 
