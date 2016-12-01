@@ -36,17 +36,15 @@
         <hr>
       {{/beers}}
     </div>
-    <div class="col s5 searching">
-      <div class='red searchBox'>
-        <form method="POST" action="/postpage">
-          Beer Name:<input name="name" id="name"><br>
-          Alcohol By Volume:<input name="alc_by_volume" id="abv"><br>
-          Description:<input name="description" id="description"><br>
-          Availability:<input name="availability" id="availability"><br>
-          Type of Beer:<input name="style" id="style"><br>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+    <div class="col s4 push-s1 searching hoverable red searchBox">
+      <form method="POST" action="/postpage">
+        Beer Name:<input name="name" id="name"><br>
+        Alcohol By Volume:<input name="alc_by_volume" id="abv"><br>
+        Description:<input name="description" id="description"><br>
+        Availability:<input name="availability" id="availability"><br>
+        Type of Beer:<input name="style" id="style"><br>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   </div>
 <!--   INPUT/FORMS FOR SAVING BEER. BY NAME/ABV/SHORT DESCRIPT

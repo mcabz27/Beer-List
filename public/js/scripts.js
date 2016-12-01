@@ -13,21 +13,16 @@ var brewery = function(search){
         }
       })
     };
-  // var appendName = function(name, temp){
-  //   $('#forecast').html('In ' + name + ' it is ' + temp + ' degrees Farenheit.')
-  // }//changing HTML
-  // // appendName();
 
-
-  // var buttonWeather = function(){
-  //   $('button').click(function(event){
+  // var searchButton = function(){
+  //   $('#submit_button').click(function(event){
   //     event.preventDefault();
-  //     var placeName = $('#city_entered').val();
-  //     console.log(placeName);
-  //     weatherData(placeName);
+  //     var beerName = $('#beer_entered').val();
+  //     console.log(beerName);
+  //     brewery(beerName);
   //   })//when button clicked-gets value from input box. runs ajax function
   // };
-  // buttonWeather();
+  // searchButton();
 
 
   // var appendSearch = function(name, description, abv, food){
@@ -36,20 +31,14 @@ var brewery = function(search){
   //   $('#description').html('Description: ' + description);
   //   $('#foods').html('Food pairings: ' + food);
   // };
+  $('.button-collapse').sideNav('show');
 
-
-  // var clickSearches = function(){
-  //   $.('button').click(function(event){
-  //     event.preventDefault();
-  //     var beerName = $('#beerSearch').val();
-  //   })
-  // };
 
   $('input.autocomplete').autocomplete({
     data: {
       "/search?q=": null,
       "/beers": null,
-      // "Google": 'http://placehold.it/250x250'
+      "/random": null
     }
   });
 })

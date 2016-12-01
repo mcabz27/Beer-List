@@ -145,7 +145,16 @@ app.get('/members/:id', function(req, res){
   }
 })
 
+// app.delete('', function(req,res){
+//   var id = req.params.id;
+//   db.none("DELETE FROM beers WHERE id = $1", [req.params.id])
+//   .then(function(data){
+//     console.log("did somthing delete");
+//     console.log(req.params.id);
+//     res.redirect('/members/' + id);
+//   })
 
+// })
 
 
 
