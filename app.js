@@ -63,6 +63,7 @@ app.post('/signup', function(req, res){
 app.post('/login', function(req, res){
   var data = req.body;
   var user = req.session.user;
+
   if (user){
     res.redirect('search');
   }

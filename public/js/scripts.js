@@ -5,24 +5,25 @@ $(document).ready(function(){
 
 var brewery = function(search){
     $.ajax({
-    'url': 'http://api.brewerydb.com/v2/' + search + '?key=' + myApi + '&format=json',
+    'url': 'http://api.brewerydb.com/v2/search?q=' + search + '&key=' + myApi + '&format=json',
     'method': 'GET',
       success: function(response){
         // for(var i = 0; i < response.data.length; i++){
-        // console.log(response.data[i].name);
+        console.log(response);
+        console.log(response.data[0].name);
         }
       })
     };
 
-  // var searchButton = function(){
-  //   $('#submit_button').click(function(event){
-  //     event.preventDefault();
-  //     var beerName = $('#beer_entered').val();
-  //     console.log(beerName);
-  //     brewery(beerName);
-  //   })//when button clicked-gets value from input box. runs ajax function
-  // };
-  // searchButton();
+  var searchButton = function(){
+    $('#submit_button').click(function(event){
+      event.preventDefault();
+      var beerName = $('#beer_entered').val();
+      console.log(beerName);
+      brewery(beerName);
+    })//when button clicked-gets value from input box. runs ajax function
+  };
+  searchButton();
 
 
   // var appendSearch = function(name, description, abv, food){
@@ -31,14 +32,13 @@ var brewery = function(search){
   //   $('#description').html('Description: ' + description);
   //   $('#foods').html('Food pairings: ' + food);
   // };
-  $('.button-collapse').sideNav('show');
 
 
   $('input.autocomplete').autocomplete({
     data: {
-      "/search?q=": null,
-      "/beers": null,
-      "/random": null
+      "goosinator": null,
+      "guinness": null,
+      // "/beer/random": null,
     }
   });
 })

@@ -18,6 +18,10 @@ body{
   font-family: 'Abril Fatface', cursive;
 }
 
+.heading{
+  text-align: center;
+}
+
 .red{
   opacity: 0.90;
 }
