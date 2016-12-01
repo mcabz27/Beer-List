@@ -16,11 +16,14 @@
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="/posts">Back to the Top</a></li>
         <li><a href="/search">Search a Beer</a></li>
+        {{#user}}
+          <li><a href="/members/{{user.id}}">My Beers</a></li>
+        {{/user}}
       </ul>
     </div>
   </nav>
 </div>
-  <h2 class="container">Check what people are drinking!</h2>
+  <h2 class="container">Check what people are drinking! </h2>
   <div class="beerWorld container col s6 red">
     {{#beers}}
       <div>

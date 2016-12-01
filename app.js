@@ -63,7 +63,8 @@ app.post('/signup', function(req, res){
 app.post('/login', function(req, res){
   var data = req.body;
   var user = req.session.user;
-
+  // var id = req.users.id;
+  // console.log(id);
   if (user){
     res.redirect('search');
   }
@@ -75,7 +76,7 @@ app.post('/login', function(req, res){
     bcrypt.compare(data.password, user.password_digest, function(err, cmp){
       if(cmp){
         req.session.user = user;
-        res.redirect('/search');
+        res.redirect('posts');
       } else {
         res.send('Email/password not found');
       }
@@ -89,9 +90,13 @@ app.get("/posts", function(req, res) {
     res.redirect('/');
   } else {
       db.many("SELECT * FROM beers").then(function(data){
-      var beerData = data
+      var beerData = data;
+      // console.log(data);
+      must = {user:user};
+      console.log(must);
       res.render('postpage', {
-      beers: beerData
+      beers: beerData,
+      user: must
       });
     })
   }
@@ -100,11 +105,9 @@ app.get("/posts", function(req, res) {
 app.post("/postpage",function(req, res){
   var beerInfo = req.body;
   var user = req.session.user;
-  // console.log(user.id);
-  // console.log(user)
-  // console.log(beerInfo);
   db.none('INSERT INTO beers (name, user_id, alc_by_volume, description, availability, style) VALUES ($1,$2,$3,$4,$5,$6)', [beerInfo.name, user.id, beerInfo.alc_by_volume, beerInfo.description, beerInfo.availability, beerInfo.style])
     .then(function(data){
+      var beers = data
       res.redirect('/posts')
   })
 });
@@ -112,11 +115,9 @@ app.post("/postpage",function(req, res){
 app.get('/search', function(req, res){
   var user = req.session.user;
   // console.log(user);
-
   if(user === undefined){
     res.redirect('/');
   } else {
-
   fetch('http://api.brewerydb.com/v2/beers?key=8788a9d8ef81f87cc310c954b394aaa0&format=json')
     .then(function(res) {
         return res.json();
@@ -146,16 +147,17 @@ app.get('/members/:id', function(req, res){
   }
 })
 
-// app.delete('', function(req,res){
-//   var id = req.params.id;
-//   db.none("DELETE FROM beers WHERE id = $1", [req.params.id])
-//   .then(function(data){
-//     console.log("did somthing delete");
-//     console.log(req.params.id);
-//     res.redirect('/members/' + id);
-//   })
-
-// })
+app.delete('', function(req,res){
+  var id = req.params.id;
+  db.none("DELETE FROM beers WHERE id = $1", [req.params.id])
+  .then(function(data){
+        var myData = data;
+        console.log(data);
+        res.render('members', {
+          beer: myData
+      });
+    })
+  })
 
 
 
@@ -166,15 +168,4 @@ app.get('/members/:id', function(req, res){
 //     res.redirect('/posts')
 //   })
 // });
-
-
-
-
-
-
-
-
-
-
-
 
