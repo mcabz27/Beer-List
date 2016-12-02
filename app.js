@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var port = process.env.PORT || 8080;
+console.log('port: ' + port);
 var pgp = require('pg-promise')();
 var db = pgp(process.env.DATABASE_URL || 'postgres://mcabz27@localhost:5432/beerlist_db');
 var mustacheExpress = require('mustache-express');
