@@ -1,6 +1,6 @@
 $(document).ready(function(){
   console.log('it loaded!');
-  var myApi = '8788a9d8ef81f87cc310c954b394aaa0';
+  var myApi = '**';
 
 
 var brewery = function(search){

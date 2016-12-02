@@ -8,11 +8,13 @@ var bdPars = require('body-parser');
 var session = require('express-session');
 var bcrypt = require('bcrypt');
 var fetch = require('node-fetch');
+var methodOver = require('method-override');
 app.use(bdPars.urlencoded({
     extended: false
 }));
 app.use(bdPars.json());
 app.engine('html', mustacheExpress());
+app.use(methodOver('_method'));
 app.set('view engine','html');
 app.set('views',__dirname+'/views');
 app.use(express.static(__dirname + "/public"));
@@ -54,7 +56,6 @@ app.post('/signup', function(req, res){
       "INSERT INTO users (email, password_digest) VALUES ($1, $2)",
       [data.email, hash]
     ).then(function(){
-      // req.session.user = user;
       res.send('User created, go login!!');
     })
   });
@@ -93,7 +94,6 @@ app.get("/posts", function(req, res) {
       var beerData = data;
       // console.log(data);
       must = {user:user};
-      console.log(must);
       res.render('postpage', {
       beers: beerData,
       user: must
@@ -122,10 +122,12 @@ app.get('/search', function(req, res){
     .then(function(res) {
         return res.json();
     }).then(function(json) {
+        must = {user:user};
         // console.log(json);
         var info = json.data;
         res.render('search', {
-          beers: info
+          beers: info,
+          user: must
         })
     });
   }
@@ -139,33 +141,43 @@ app.get('/members/:id', function(req, res){
   } else {
     db.many('SELECT * FROM beers WHERE user_id = $1', [req.params.id])
     .then(function(data){
+      must = {user:user};
       var myData = data;
         res.render('members', {
-          beer: myData
+          beer: myData,
+          user: must
       });
     })
   }
 })
 
-app.delete('', function(req,res){
+app.delete('/beers/:id', function(req,res){
   var id = req.params.id;
   db.none("DELETE FROM beers WHERE id = $1", [req.params.id])
-  .then(function(data){
-        var myData = data;
-        console.log(data);
-        res.render('members', {
-          beer: myData
-      });
+  .then(function(){
+        res.render('members');
     })
   })
 
+app.put('/updatebeer/:id', function(req,res){
+  var id = req.params.id;
+  var beers = req.body;
+  db.none("UPDATE beers SET description = $1 WHERE id = $2", [beers.description, req.params.id]).then(function(){
+    res.redirect('/posts')
+  })
+})
 
 
-// app.post("/comment", function(req, res){
-//   var usercomm = req.body;
-//   console.log(usercomm);
-//   db.none('INSERT INTO usercomment (comment) VALUES ($1)', [usercomm.comment]).then(function(data){
-//     res.redirect('/posts')
-//   })
-// });
+
+
+
+
+
+
+
+
+
+
+
+
 

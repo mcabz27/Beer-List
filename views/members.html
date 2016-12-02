@@ -14,25 +14,41 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo right">Logo</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
+        {{#user}}
+          <li><a href="/members/{{user.id}}">Back to the Top</a></li>
+        {{/user}}
         <li><a href="/search">Search a Beer</a></li>
         <li><a href="/posts">Post Page</a></li>
       </ul>
     </div>
   </nav>
 </div>
-<div class="container">
-  <h3>
-    {{#beer}}
-      {{name}}
-        <form method="DELETE" action="">
-        <a href="">
-          <button type="submit">DELETE BEER</button>
-        </a>
-      </form>
-      <hr>
-    {{/beer}}
-  </h3>
-</div>
+<div class="row container">
+    <h4>
+      {{#beer}}
+      <div class="red">
+        Beer Name: {{name}}<br>
+        What you thought: {{description}}<br>
+        Availability: {{availability}}<br>
+        Questions on Beer: {{style}}
+          <form method="POST" action="/beers/{{id}}?_method=DELETE">
+          <a href="">
+            <button type="submit">DELETE BEER</button>
+          </a>
+        </form>
+        <form method="POST" action="/updatebeer/{{id}}?_method=PUT">
+          <input name="description" id="description">
+          <button type="submit">UPDATE WHAT YOU THOUGHT</button><br>
+        </form>
+        <hr>
+      </div>
+<!--       <form method="POST" action="/updatebeer/{{id}}?_method=PUT">
+      <input name="name" id="name">
+      <button type="submit">UPDATE BEER NAME</button><br>
+      </form> -->
+      {{/beer}}
+    </h4>
+  </div>
 <footer class="page-footer red">
   <div class="container">
     <div class="row">

@@ -16,6 +16,9 @@
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="/search">Back to the Top</a></li>
         <li><a href="/posts">Post Page</a></li>
+        {{#user}}
+          <li><a href="/members/{{user.id}}">My Beers</a></li>
+        {{/user}}
       </ul>
     </div>
   </nav>
@@ -27,27 +30,25 @@
       <button id="submit_button" type="submit" class="btn-large red">Search</button>
     </form>
   </div>
-  <div class="row searchBox">
-    <div class="col s7 red searches">
+  <div class="row searchBox container">
+    <div class="col s5 pull-s1 red searches">
       {{#beers}}
-        {{name}}<br>
-        {{id}}<br>
-        {{description}}<br>
+        Beer Name: {{name}}<br>
+        Beer ID: {{id}}<br>
+        Description: {{description}}<br>
         <hr>
       {{/beers}}
     </div>
-    <div class="col s4 push-s1 searching hoverable red searchBox">
+    <div class="col s7 searching hoverable red searchBox">
       <form method="POST" action="/postpage">
         Beer Name:<input name="name" id="name"><br>
-        Alcohol By Volume:<input name="alc_by_volume" id="abv"><br>
-        Thoughts on the beer?:<input name="description" id="description"><br>
-        Availability:<input name="availability" id="availability"><br>
-        Type of Beer:<input name="style" id="style"><br>
+        Thoughts on the beer:<input name="description" id="description"><br>
+        Questions on Beer:<input name="style" id="style"><br>
         <button type="submit">Submit</button>
       </form>
     </div>
   </div>
-<!--   INPUT/FORMS FOR SAVING BEER. BY NAME/ABV/SHORT DESCRIPT
+<!--   INPUT/FORMS FOR SAVING BEER. BY NAME/SHORT DESCRIPT
  -->
 <footer class="page-footer red">
   <div class="container">
