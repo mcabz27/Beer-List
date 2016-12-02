@@ -26,7 +26,7 @@ app.use(session({
   cookie: { secure: false }
 }))
 
-app.listen(8080, function(){
+app.listen(port, function(){
   console.log('Server alive on port 8080!');
 });
 
