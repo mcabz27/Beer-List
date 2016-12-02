@@ -14,7 +14,7 @@ CREATE TABLE beers (
   name VARCHAR (255),
   alc_by_volume INTEGER,
   description VARCHAR (255),
-  questions VARCHAR (255),
+  availability VARCHAR (255),
   style VARCHAR (255)
 );
 
