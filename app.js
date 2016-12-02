@@ -40,11 +40,13 @@ app.get('/', function(req, res){
     email = req.session.user.email
     res.redirect('search');
   }
+  else{
   var data = {
     "logged_in": logged_in,
     "email": email
   }
   res.render('index', data);
+}
 })
 
 app.get('/signup', function(req, res){
