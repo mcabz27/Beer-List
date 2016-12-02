@@ -10,6 +10,7 @@ var session = require('express-session');
 var bcrypt = require('bcrypt');
 var fetch = require('node-fetch');
 var methodOver = require('method-override');
+var api = process.env.MY_API;
 app.use(bdPars.urlencoded({
     extended: false
 }));
@@ -119,7 +120,7 @@ app.get('/search', function(req, res){
   if(user === undefined){
     res.redirect('/');
   } else {
-  fetch('http://api.brewerydb.com/v2/beers?key=8788a9d8ef81f87cc310c954b394aaa0&format=json')
+  fetch('http://api.brewerydb.com/v2/beers?key='+api+'&format=json')
     .then(function(res) {
         return res.json();
     }).then(function(json) {
