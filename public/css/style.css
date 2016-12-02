@@ -18,6 +18,13 @@ body{
   font-family: 'Abril Fatface', cursive;
 }
 
+.okay{
+  color: white;
+}
+
+.highlight:hover{
+  color: #00080;
+}
 
 .heading{
   text-align: center;

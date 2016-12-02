@@ -1,6 +1,7 @@
 $(document).ready(function(){
   console.log('it loaded!');
   var myApi = '**';
+  $('#website').hide();
 
 
 var brewery = function(search){
@@ -13,10 +14,13 @@ var brewery = function(search){
         console.log(response.data[0].name);
         console.log(response.data[0].description);
         console.log(response.data[0].images.medium);
+        console.log(response.data[0].website);
+        $('#website').show();
         name = response.data[0].name;
         description = response.data[0].description;
         pic = response.data[0].images.medium;
-        appendSearch(name, description, pic)
+        web = response.data[0].website;
+        appendSearch(name, description, pic, web)
         }
       })
     };
@@ -32,10 +36,11 @@ var brewery = function(search){
   searchButton();
 
 
-  var appendSearch = function(name, description, pic){
+  var appendSearch = function(name, description, pic, web){
     $('#allBeer').html('You searched ' + name);
     $('#description').html(description);
     $('#theimage').attr('src', pic);
+    $('#web').attr('href', web);
   };
 
 $('input#input_text, textarea#textarea1').characterCounter();

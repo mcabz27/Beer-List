@@ -13,7 +13,7 @@
 <div class="navbar-fixed">
   <nav class="red">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo right">The Beer Forum</a>
+      <a href="/posts" class="brand-logo right">The Beer List</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         {{#user}}
           <li><a href="/members/{{user.id}}">Back to the Top</a></li>
@@ -40,7 +40,7 @@
           </a>
         </form>
         <form method="POST" action="/updatebeer/{{id}}?_method=PUT">
-          <input name="description" id="description input_text" length="255" placeholder="Type here to update what you thought">
+          <input name="description" id="description input_text" length="255" placeholder="Have you tried it? Update what you thought!">
           <button type="submit" class="waves-effect waves-light btn"><i class="small material-icons">chat_bubble</i>UPDATE</button><br>
         </form>
         <hr>
@@ -52,7 +52,7 @@
     <div class="row">
       <div class="col l6 s12">
         <h5 class="white-text">Footer Content</h5>
-        <p class="grey-text text-lighten-4">More coming soon!</p>
+        <p class="grey-text text-lighten-4">More coming soon! Like this site? Show your friends! DRINK RESPONSIBLY</p>
       </div>
       <div class="col l4 offset-l2 s12">
         <h5 class="white-text">Links</h5>
