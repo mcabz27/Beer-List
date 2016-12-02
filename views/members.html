@@ -26,26 +26,26 @@
 </div>
 <h1 class="container">Here are your beers</h1>
 <div class="row container">
-    <h4>
       {{#beer}}
       <div class="red hoverable">
+      <h4>
         Beer Name: {{name}}<br>
         What you thought: {{description}}<br>
-        Availability: {{availability}}<br>
-        Questions on Beer: {{style}}
+<!--         Availability: {{availability}}<br>
+ -->        Questions on Beer: {{style}}
+      </h4>
           <form method="POST" action="/beers/{{id}}?_method=DELETE">
           <a href="">
-            <button type="submit"><i class="small material-icons">delete</i>DELETE BEER</button>
+            <button type="submit" class="waves-effect waves-light btn"><i class="medium material-icons">delete</i>DELETE BEER</button>
           </a>
         </form>
         <form method="POST" action="/updatebeer/{{id}}?_method=PUT">
-          <input name="description" id="description input_text" length="255">
-          <button type="submit"><i class="small material-icons">chat_bubble</i>UPDATE WHAT YOU THOUGHT</button><br>
+          <input name="description" id="description input_text" length="255" placeholder="Type here to update what you thought">
+          <button type="submit" class="waves-effect waves-light btn"><i class="small material-icons">chat_bubble</i>UPDATE</button><br>
         </form>
         <hr>
       </div>
       {{/beer}}
-    </h4>
   </div>
 <footer class="page-footer red">
   <div class="container">

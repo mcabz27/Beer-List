@@ -1,5 +1,6 @@
 h1{
   color: white;
+  text-align: center;
 }
 
 h2{
@@ -17,21 +18,13 @@ body{
   font-family: 'Abril Fatface', cursive;
 }
 
-/* #input_text{
-  color: white;
-  font-size: 20px;
-} */
-
-.highlight:hover{
-  color: #000080;
-}
 
 .heading{
   text-align: center;
 }
 
 .red{
-  opacity: 0.90;
+  opacity: 0.92;
 }
 
 .searching{

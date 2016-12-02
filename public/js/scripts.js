@@ -44,7 +44,16 @@ $('input#input_text, textarea#textarea1').characterCounter();
     data: {
       "goosinator": null,
       "guinness": null,
-      // "/beer/random": null,
+      "blue moon": null,
+      "shock top": null,
+      "heineken": null,
+      "coors light": null,
+      "tecate": null,
+      "pacifico": null,
+      "presidente": null,
+      "corona": null,
+      "miller genuine draft": null,
+      "budweiser": null,
     }
   });
 })
