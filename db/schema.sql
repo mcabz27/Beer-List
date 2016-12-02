@@ -20,10 +20,8 @@ CREATE TABLE beers (
 
 -- CREATE TABLE usercomment (
 --   id SERIAL PRIMARY KEY,
---   -- comment_id INTEGER REFERENCES beers(beer_id),
---   comment VARCHAR (255),
---   -- user_id INTEGER,
 --   beer_id INTEGER,
+--   comment VARCHAR (255),
 -- );
 
 
