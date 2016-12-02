@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 var brewery = function(search){
     $.ajax({
-    'url': 'http://api.brewerydb.com/v2/search?q=' + search + '&key=' + myApi + '&format=json',
+    'url': 'https://api.brewerydb.com/v2/search?q=' + search + '&key=' + myApi + '&format=json',
     'method': 'GET',
       success: function(response){
         // for(var i = 0; i < response.data.length; i++){

@@ -120,7 +120,7 @@ app.get('/search', function(req, res){
   if(user === undefined){
     res.redirect('/');
   } else {
-  fetch('http://api.brewerydb.com/v2/beers?key='+api+'&format=json')
+  fetch('https://api.brewerydb.com/v2/beers?key='+api+'&format=json')
     .then(function(res) {
         return res.json();
     }).then(function(json) {
