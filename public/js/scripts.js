@@ -1,6 +1,6 @@
 $(document).ready(function(){
   console.log('it loaded!');
-  var myApi = '**';
+  var myApi = '8788a9d8ef81f87cc310c954b394aaa0';
   $('#website').hide();
 
 
@@ -15,12 +15,14 @@ var brewery = function(search){
         console.log(response.data[0].description);
         console.log(response.data[0].images.medium);
         console.log(response.data[0].website);
+        console.log(response.data[0].isOrganic);
         $('#website').show();
         name = response.data[0].name;
         description = response.data[0].description;
         pic = response.data[0].images.medium;
         web = response.data[0].website;
-        appendSearch(name, description, pic, web)
+        organic = response.data[0].isOrganic;
+        appendSearch(name, description, pic, web, organic)
         }
       })
     };
@@ -36,11 +38,12 @@ var brewery = function(search){
   searchButton();
 
 
-  var appendSearch = function(name, description, pic, web){
+  var appendSearch = function(name, description, pic, web, organic){
     $('#allBeer').html('You searched ' + name);
     $('#description').html(description);
     $('#theimage').attr('src', pic);
     $('#web').attr('href', web);
+    $('#organic').html('Is it organic(y/n)? ' + organic)
   };
 
 $('input#input_text, textarea#textarea1').characterCounter();

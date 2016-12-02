@@ -6,6 +6,7 @@
   <title>Search a Beer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 </head>
 <body>
@@ -26,18 +27,19 @@
   <h2 class="container">Search for a beer!!!</h2>
   <div class="container showme">
     <form class="pure-form">
-      <input id="beer_entered" type="text" class="autocomplete">
-      <button id="submit_button" type="submit" class="btn-large red">Search</button>
+      <input id="beer_entered" type="text" class="autocomplete" placeholder="SEARCH HERE!">
+      <button id="submit_button" type="submit" class="btn-floating btn-large waves-effect waves-light red"><i class="medium material-icons">search</i></button>
     </form>
   </div>
   <div class="row container col s7 red">
     <p id="allbeer"></p>
     <p id="description"></p>
+    <p id="organic"></p>
     <p id="website"><a id="web">Click for Beer Website!</a></p>
     <img id="theimage">
   </div>
   <div class="row searchBox container">
-    <div class="col s5 pull-s1 red searches">
+    <div class="col s6 red searches">
       {{#beers}}
         Beer Name: {{name}}<br>
         Beer ID: {{id}}<br>
@@ -45,12 +47,14 @@
         <hr>
       {{/beers}}
     </div>
-    <div class="col s7 searching hoverable red searchBox">
+    <div class="col s6 searching hoverable red searchBox">
+    <h4>Save the beer how you like</h4>
       <form method="POST" action="/postpage">
         Beer Name:<input name="name" id="name"><br>
         Description on the beer:<input name="description" id="description imput_text" length="255"><br>
-        Questions on the Beer:<input name="style" id="style"><br>
-        <button type="submit">Submit</button>
+        Questions/Opinions on the Beer:<input name="style" id="style"><br>
+        <button type="submit" class="waves-effect waves-light green"><i class="small material-icons">input</i>
+Submit</button>
       </form>
     </div>
   </div>
