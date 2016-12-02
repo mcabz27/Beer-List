@@ -38,6 +38,7 @@ var brewery = function(search){
     $('#theimage').attr('src', pic);
   };
 
+$('input#input_text, textarea#textarea1').characterCounter();
 
   $('input.autocomplete').autocomplete({
     data: {

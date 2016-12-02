@@ -6,13 +6,14 @@
   <title>Your Saved Beers</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 </head>
 <body>
 <div class="navbar-fixed">
   <nav class="red">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo right">Logo</a>
+      <a href="#" class="brand-logo right">The Beer Forum</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         {{#user}}
           <li><a href="/members/{{user.id}}">Back to the Top</a></li>
@@ -23,29 +24,26 @@
     </div>
   </nav>
 </div>
+<h1 class="container">Here are your beers</h1>
 <div class="row container">
     <h4>
       {{#beer}}
-      <div class="red">
+      <div class="red hoverable">
         Beer Name: {{name}}<br>
         What you thought: {{description}}<br>
         Availability: {{availability}}<br>
         Questions on Beer: {{style}}
           <form method="POST" action="/beers/{{id}}?_method=DELETE">
           <a href="">
-            <button type="submit">DELETE BEER</button>
+            <button type="submit"><i class="small material-icons">delete</i>DELETE BEER</button>
           </a>
         </form>
         <form method="POST" action="/updatebeer/{{id}}?_method=PUT">
-          <input name="description" id="description">
-          <button type="submit">UPDATE WHAT YOU THOUGHT</button><br>
+          <input name="description" id="description input_text" length="255">
+          <button type="submit"><i class="small material-icons">chat_bubble</i>UPDATE WHAT YOU THOUGHT</button><br>
         </form>
         <hr>
       </div>
-<!--       <form method="POST" action="/updatebeer/{{id}}?_method=PUT">
-      <input name="name" id="name">
-      <button type="submit">UPDATE BEER NAME</button><br>
-      </form> -->
       {{/beer}}
     </h4>
   </div>
@@ -54,15 +52,13 @@
     <div class="row">
       <div class="col l6 s12">
         <h5 class="white-text">Footer Content</h5>
-        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        <p class="grey-text text-lighten-4">More coming soon!</p>
       </div>
       <div class="col l4 offset-l2 s12">
         <h5 class="white-text">Links</h5>
         <ul>
-          <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://github.com/mcabz27">Github</a></li>
           <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
         </ul>
       </div>
     </div>

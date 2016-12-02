@@ -170,14 +170,3 @@ app.put('/updatebeer/:id', function(req,res){
 
 
 
-
-
-
-
-
-
-
-
-
-
-

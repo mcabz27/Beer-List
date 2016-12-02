@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS beers CASCADE;
-DROP TABLE IF EXISTS usercomment CASCADE;
+-- DROP TABLE IF EXISTS usercomment CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
 
 CREATE TABLE users (
@@ -10,22 +10,21 @@ CREATE TABLE users (
 
 CREATE TABLE beers (
   id SERIAL PRIMARY KEY,
-  -- beer_id INTEGER UNIQUE REFERENCES users(id),
   user_id INTEGER,
   name VARCHAR (255),
-  alc_by_volume VARCHAR (255),
+  alc_by_volume INTEGER,
   description VARCHAR (255),
   availability VARCHAR (255),
   style VARCHAR (255)
 );
 
-CREATE TABLE usercomment (
-  id SERIAL PRIMARY KEY,
-  -- comment_id INTEGER REFERENCES beers(beer_id),
-  comment VARCHAR (255),
-  -- user_id INTEGER,
-  beer_id INTEGER,
-);
+-- CREATE TABLE usercomment (
+--   id SERIAL PRIMARY KEY,
+--   -- comment_id INTEGER REFERENCES beers(beer_id),
+--   comment VARCHAR (255),
+--   -- user_id INTEGER,
+--   beer_id INTEGER,
+-- );
 
 
 
