@@ -51,26 +51,8 @@ app.get('/', function(req, res){
 
 app.get('/logout', function(req, res){
   req.session.destroy(function(){
-  res.redirect('/')
-
+    res.redirect('/')
   });
-
-//   var logged_in;
-//   var email;
-//   var user = req.session.user;
-//   var id;
-//   if(user){
-//     logged_in = false;
-//     email = req.session.user.email
-//     res.redirect('index');
-//   }
-//   else{
-//   var data = {
-//     "logged_in": logged_in,
-//     "email": email
-//   }
-//   res.redirect('index', data);
-// }
 })
 
 app.get('/signup', function(req, res){
